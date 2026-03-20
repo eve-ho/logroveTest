@@ -33,6 +33,11 @@ dependencies {
     implementation 'com.google.cloud:google-cloud-vision:3.34.0'
     // 2. 인증을 위한 라이브러리
     implementation 'com.google.auth:google-auth-library-oauth2-http:1.23.0'
+    // HTTP 통신을 위한 RestTemplate과 JSON 처리를 위한 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // JSON 데이터를 쉽게 다루기 위한 라이브러리 (나중에 파싱할 때 필요해!)
+    implementation 'org.json:json:20231013'
 }
 
 tasks.named('test') {

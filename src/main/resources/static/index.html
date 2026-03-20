@@ -2,23 +2,38 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>LoGrove - 구글 비전 테스트</title>
+    <title>LoGrove - AI 분석 테스트</title>
     <style>
         body { font-family: sans-serif; padding: 50px; text-align: center; }
-        .upload-box { border: 2px dashed #ccc; padding: 30px; border-radius: 10px; }
-        button { margin-top: 20px; padding: 10px 20px; cursor: pointer; }
+        .container { display: flex; justify-content: center; gap: 20px; }
+        .upload-box { border: 2px dashed #ccc; padding: 30px; border-radius: 10px; width: 300px; }
+        .gemini-box { border-color: #4285F4; background-color: #f8faff; }
+        button { margin-top: 20px; padding: 10px 20px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; }
+        .gemini-btn { background-color: #4285F4; color: white; border: none; }
+        input[type="text"] { width: 90%; padding: 8px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-<h1>📸 사진 분석 테스트 페이지</h1>
-<p>사진을 선택하고 분석 버튼을 눌러보세요!</p>
+<h1>📸 사진 AI 분석 센터</h1>
+<p>기존 비전 API와 새로운 제미나이 기능을 모두 테스트해보세요!</p>
 
-<div class="upload-box">
-    <form action="/api/vision/analyze" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required>
-        <br>
-        <button type="submit">구글 AI에게 물어보기</button>
-    </form>
+<div class="container">
+    <div class="upload-box">
+        <h3>🔍 기존 비전 API</h3>
+        <form action="/api/vision/analyze" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">라벨 분석하기</button>
+        </form>
+    </div>
+
+    <div class="upload-box gemini-box">
+        <h3>✨ 제미나이 AI 채점</h3>
+        <form action="/api/vision/gemini-analyze" method="post" enctype="multipart/form-data">
+            <input type="text" name="missionTopic" placeholder="미션 주제 (예: 하늘)" required>
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit" class="gemini-btn">미션 점수 받기</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>
