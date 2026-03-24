@@ -29,6 +29,7 @@ public class VisionController {
             @RequestParam("missionTopic") String missionTopic) throws IOException {
 
         // 아까 만든 제미나이 서비스 호출!
-        return geminiService.analyzeMission(file, missionTopic);
+//        return geminiService.analyzeMission(file, missionTopic);
+        return geminiService.extractImageTags(file);
     }
 }
